@@ -1,0 +1,19 @@
+{
+  "left": [
+    { "file": "snow-1.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-4.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-5.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-8.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-9.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-10.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-12.webp", "description": "左上角积雪，冰挂在左下" },
+    { "file": "snow-13.webp", "description": "左上角积雪，冰挂在左下" }
+  ],
+  "right": [
+    { "file": "snow-2.webp", "description": "右上角积雪，冰挂在右下" },
+    { "file": "snow-3.webp", "description": "右上角积雪，冰挂在右下" },
+    { "file": "snow-6.webp", "description": "右上角积雪，冰挂在右下" },
+    { "file": "snow-7.webp", "description": "右上角积雪，冰挂在右下" },
+    { "file": "snow-11.webp", "description": "右上角积雪，冰挂在右下" }
+  ]
+}

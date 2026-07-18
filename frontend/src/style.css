@@ -1,0 +1,591 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 亮色主题变量 */
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #303133;
+  --text-secondary: #606266;
+  --text-muted: #909399;
+  --border-color: #e4e7ed;
+  --border-light: #f0f2f5;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --header-bg: #ffffff;
+  --input-bg: #ffffff;
+  --hover-bg: #f5f7fa;
+
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  /* 主题切换过渡 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 暗黑主题变量 */
+[data-theme="dark"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: #1c2128;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --border-color: #373e47;
+  --border-light: #21262d;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --header-bg: #161b22;
+  --input-bg: #21262d;
+  --hover-bg: #30363d;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+/* Element Plus 暗黑模式覆盖 */
+[data-theme="dark"] .el-card,
+[data-theme="dark"] .el-dialog,
+[data-theme="dark"] .el-drawer,
+[data-theme="dark"] .el-popover,
+[data-theme="dark"] .el-dropdown-menu {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .el-input__wrapper,
+[data-theme="dark"] .el-textarea__inner {
+  background-color: var(--input-bg) !important;
+  box-shadow: 0 0 0 1px var(--border-color) inset !important;
+}
+
+[data-theme="dark"] .el-input__inner,
+[data-theme="dark"] .el-textarea__inner {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-input__inner::placeholder,
+[data-theme="dark"] .el-textarea__inner::placeholder {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .el-button--default {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-button--default:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+[data-theme="dark"] .el-tag {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .el-empty__description {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .el-form-item__label {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .el-select-dropdown {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .el-select-dropdown__item {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-select-dropdown__item:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Element Plus Select Dropdown (teleported to body) */
+.dark .el-select-dropdown,
+.dark .el-popper.is-light {
+  background-color: #1c2128 !important;
+  border-color: #373e47 !important;
+}
+
+.dark .el-select-dropdown__item {
+  color: #e6edf3 !important;
+}
+
+.dark .el-select-dropdown__item:hover,
+.dark .el-select-dropdown__item.hover {
+  background-color: #30363d !important;
+}
+
+.dark .el-select-dropdown__item.is-selected {
+  color: #409eff !important;
+  background-color: rgba(64, 158, 255, 0.1) !important;
+}
+
+.dark .el-popper__arrow::before {
+  background-color: #1c2128 !important;
+  border-color: #373e47 !important;
+}
+
+[data-theme="dark"] .el-message-box {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .el-message-box__title,
+[data-theme="dark"] .el-message-box__content {
+  color: var(--text-primary) !important;
+}
+
+/* Element Plus Popovers/Dialogs (teleported to body) */
+.dark .el-message-box {
+  background-color: #1c2128 !important;
+  border-color: #373e47 !important;
+}
+
+.dark .el-message-box__title,
+.dark .el-message-box__content {
+  color: #e6edf3 !important;
+}
+
+.dark .el-message-box__btns .el-button--default {
+  background-color: #21262d !important;
+  border-color: #373e47 !important;
+  color: #e6edf3 !important;
+}
+
+.dark .el-dialog {
+  background-color: #1c2128 !important;
+}
+
+.dark .el-dialog__header {
+  background-color: #1c2128 !important;
+}
+
+.dark .el-dialog__title {
+  color: #e6edf3 !important;
+}
+
+.dark .el-dialog__body {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+}
+
+.dark .el-popconfirm {
+  background-color: #1c2128 !important;
+}
+
+.dark .el-popconfirm__main {
+  color: #e6edf3 !important;
+}
+
+.dark .el-popover.el-popper {
+  background-color: #1c2128 !important;
+  border-color: #373e47 !important;
+}
+
+/* Element Plus 进度条暗黑模式 */
+[data-theme="dark"] .el-progress-bar__outer {
+  background-color: var(--border-color) !important;
+}
+
+/* Element Plus 滑块暗黑模式 */
+[data-theme="dark"] .el-slider__runway {
+  background-color: var(--border-color) !important;
+}
+
+/* Element Plus 图片预览暗黑模式 */
+[data-theme="dark"] .el-image-viewer__wrapper {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Element Plus 弹出确认框暗黑模式 */
+[data-theme="dark"] .el-popconfirm {
+  background-color: var(--bg-card) !important;
+}
+
+/* Element Plus 标签页暗黑模式 */
+[data-theme="dark"] .el-tabs__item {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .el-tabs__item.is-active {
+  color: #409eff !important;
+}
+
+/* Element Plus 表格暗黑模式 */
+[data-theme="dark"] .el-table {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-table tr {
+  background-color: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .el-table th.el-table__cell {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-table td.el-table__cell {
+  border-color: var(--border-color) !important;
+}
+
+/* Element Plus 对话框暗黑模式 */
+[data-theme="dark"] .el-dialog__header {
+  background-color: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .el-dialog__title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-dialog__body {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-dialog__footer {
+  background-color: var(--bg-card) !important;
+}
+
+/* 滚动条暗黑模式 */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Element Plus Select 暗黑模式 */
+[data-theme="dark"] .el-select .el-input__wrapper {
+  background-color: var(--input-bg) !important;
+  box-shadow: 0 0 0 1px var(--border-color) inset !important;
+}
+
+[data-theme="dark"] .el-select .el-input__inner {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-select-dropdown__item.is-selected {
+  color: #409eff !important;
+}
+
+/* Element Plus Input Number 暗黑模式 */
+[data-theme="dark"] .el-input-number {
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .el-input-number .el-input__wrapper {
+  background-color: var(--input-bg) !important;
+  box-shadow: 0 0 0 1px var(--border-color) inset !important;
+}
+
+[data-theme="dark"] .el-input-number__decrease,
+[data-theme="dark"] .el-input-number__increase {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .el-input-number__decrease:hover,
+[data-theme="dark"] .el-input-number__increase:hover {
+  color: #409eff !important;
+}
+
+/* Element Plus Collapse 暗黑模式 */
+[data-theme="dark"] .el-collapse {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .el-collapse-item__header {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-collapse-item__wrap {
+  background-color: transparent !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .el-collapse-item__content {
+  color: var(--text-primary) !important;
+}
+
+/* Element Plus Checkbox 暗黑模式 */
+[data-theme="dark"] .el-checkbox__label {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-checkbox__inner {
+  background-color: var(--input-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Element Plus Upload 暗黑模式 */
+[data-theme="dark"] .el-upload-dragger {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .el-upload-list__item {
+  color: var(--text-primary) !important;
+}
+
+/* Element Plus Alert 暗黑模式 */
+[data-theme="dark"] .el-alert--info.is-light {
+  background-color: rgba(64, 158, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .el-alert--success.is-light {
+  background-color: rgba(103, 194, 58, 0.1) !important;
+}
+
+[data-theme="dark"] .el-alert--error.is-light {
+  background-color: rgba(245, 108, 108, 0.1) !important;
+}
+
+[data-theme="dark"] .el-alert--warning.is-light {
+  background-color: rgba(230, 162, 60, 0.1) !important;
+}
+
+[data-theme="dark"] .el-alert__title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .el-alert__description {
+  color: var(--text-secondary) !important;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==================== 下雪模式样式 ==================== */
+
+/* 雪花容器 */
+.snowflakes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* 单个雪花 */
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: #a8d4ff;
+  text-shadow: 0 0 5px rgba(168, 212, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: snowfall linear infinite;
+  user-select: none;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+
+  25% {
+    transform: translateY(25vh) rotate(90deg) translateX(15px);
+  }
+
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(-15px);
+  }
+
+  75% {
+    transform: translateY(75vh) rotate(270deg) translateX(15px);
+  }
+
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(-15px);
+    opacity: 0.3;
+  }
+}
+
+/* 积雪效果 - 动态生成自然积雪 */
+.snow-pile-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: visible;
+  /* 关键：给整体积雪添加阴影，而不是给每个小块添加 */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+.snow-clump {
+  position: absolute;
+  /* 柔和的渐变，模拟雪的体积感 */
+  background: linear-gradient(180deg, #ffffff 40%, #f0f8ff 100%);
+  z-index: 2;
+  /* 移除边缘阴影，使用微弱的模糊让边缘柔和 */
+  /* filter: blur(0.5px); // 性能消耗较大，视情况开启 */
+}
+
+.snow-icicle {
+  position: absolute;
+  background: linear-gradient(180deg, #ffffff 0%, #e6f2ff 100%);
+  /* 更加圆润的底部，像水滴积聚 */
+  border-radius: 5px 5px 10px 10px;
+  z-index: 1;
+  opacity: 0.95;
+  transform-origin: top center;
+  animation: icicle-sway 5s ease-in-out infinite alternate;
+}
+
+/* 简单的微风摆动效果 */
+@keyframes icicle-sway {
+  from {
+    transform: rotate(-1deg);
+  }
+
+  to {
+    transform: rotate(1deg);
+  }
+}
+
+.snow-cover-layer {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: #fff;
+  border-radius: 12px 12px 0 0;
+  z-index: 2;
+}
+
+/* 暗黑模式适配 */
+[data-theme="dark"] .snow-pile-container {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+[data-theme="dark"] .snow-clump {
+  background: linear-gradient(180deg, #dcecfc 20%, #b8cde0 100%);
+}
+
+[data-theme="dark"] .snow-icicle {
+  background: linear-gradient(180deg, #dcecfc 0%, #afc5dd 100%);
+}
+
+[data-theme="dark"] .snow-cover-layer {
+  background: #dcecfc;
+}
+
+/* 暗黑模式下的雪花 */
+[data-theme="dark"] .snowflake {
+  color: #c8e0ff;
+  text-shadow: 0 0 8px rgba(200, 224, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Page Footer Snow */
+.snow-footer-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 9999;
+  pointer-events: none;
+  filter: drop-shadow(0 -4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.snow-footer-base {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(180deg, #ffffff 40%, #f0f8ff 100%);
+  z-index: 1;
+}
+
+[data-theme="dark"] .snow-footer-layer {
+  filter: drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.5));
+}
